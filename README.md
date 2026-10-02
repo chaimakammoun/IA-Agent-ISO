@@ -55,11 +55,15 @@ Interface Streamlit
 git clone https://github.com/chaimakammoun/IA-Agent-ISO.git
 
 cd IA-Agent-ISO
+
 ---
+
 2. Installer les dépendances:
 
 Installer les bibliothèques Python nécessaires au projet.
+
 ---
+
 3. Installer Ollama:
 
 Installer Ollama puis télécharger les modèles utilisés :
@@ -73,5 +77,6 @@ ollama pull nomic-embed-text
 ## ▶️ Lancer l'application
 
 streamlit run app.py
+
 ---
 L'application sera ensuite accessible depuis le navigateur via l'interface Streamlit.
