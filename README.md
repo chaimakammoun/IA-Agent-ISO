@@ -8,7 +8,7 @@ Le projet fonctionne **entièrement en local** grâce à Ollama.
 
 
 
-# #🎯 Objectif
+🎯 Objectif
 
 L'objectif est de faciliter la recherche d'informations liées à la qualité et à l'ISO 9001 2015.
 
@@ -22,7 +22,7 @@ L'agent recherche les passages pertinents dans les documents disponibles et four
 
 
 
-# #🏗️ Architecture
+🏗️ Architecture
 
 
                     Question utilisateur
@@ -45,30 +45,44 @@ L'agent recherche les passages pertinents dans les documents disponibles et four
                     Interface Streamlit
 
 
-# #🛠️ Technologies
+🛠️ Technologies
 
 Python — langage de programmation
+
 Ollama — exécution locale des modèles IA
+
 Llama 3.2 3B — génération des réponses
+
 nomic-embed-text — génération des embeddings
+
 Agno — agent IA et gestion du RAG
+
 LanceDB — base vectorielle locale
+
 Streamlit — interface utilisateur
 
 
-# #⚙️ Installation
+⚙️ Installation
 
-1. Cloner le repository
+1. Cloner le repository:
+
 git clone https://github.com/chaimakammoun/IA-Agent-ISO.git
+
 cd IA-Agent-ISO
-2. Installer les dépendances
+
+2. Installer les dépendances:
+
 Installer les bibliothèques Python nécessaires au projet.
-3. Installer Ollama
+
+3. Installer Ollama:
+
 Installer Ollama puis télécharger les modèles utilisés :
 
 ollama pull llama3.2:3b
+
 ollama pull nomic-embed-text
 
 
-# #▶️ Lancer l'application
+▶️ Lancer l'application
+
 streamlit run app.py
