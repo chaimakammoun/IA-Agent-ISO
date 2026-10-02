@@ -42,21 +42,24 @@ Agent Agno + Ollama
 Réponse avec sources
         │
         ▼
-Interface Streamlit
+Interface Streamlit 
 
+```
 
-⚙️ Installation
+---
+
+## ⚙️ Installation
 
 1. Cloner le repository:
 
 git clone https://github.com/chaimakammoun/IA-Agent-ISO.git
 
 cd IA-Agent-ISO
-
+---
 2. Installer les dépendances:
 
 Installer les bibliothèques Python nécessaires au projet.
-
+---
 3. Installer Ollama:
 
 Installer Ollama puis télécharger les modèles utilisés :
@@ -65,9 +68,10 @@ ollama pull llama3.2:3b
 
 ollama pull nomic-embed-text
 
+---
 
-▶️ Lancer l'application
+## ▶️ Lancer l'application
 
 streamlit run app.py
-
+---
 L'application sera ensuite accessible depuis le navigateur via l'interface Streamlit.
