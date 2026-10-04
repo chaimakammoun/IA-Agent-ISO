@@ -97,3 +97,11 @@ The default models are:
 ## Data and Git
 
 The `lancedb/` folder is generated locally and excluded from Git. Keep source documents in `data/` under version control only when they are appropriate to share.
+
+## Screenshots
+
+![Application screenshot 1](screenshots/im1.png)
+
+![Application screenshot 2](screenshots/im2.png)
+
+![Application screenshot 3](screenshots/im3.png)
