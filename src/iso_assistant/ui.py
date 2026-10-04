@@ -1,19 +1,16 @@
-"""Streamlit user interface for the ISO quality assistant."""
-
 import streamlit as st
 
 from iso_assistant.agent import build_agent
 
 
 def run() -> None:
-    """Render and run the chat interface."""
-    st.set_page_config(page_title="Assistant Qualité Atlas Composants", page_icon="🤖")
-    st.title("🤖 Assistant Qualité — Atlas Composants")
-    st.caption("Pose une question sur ISO 9001 ou les procédures internes.")
+    st.set_page_config(page_title="Atlas Components Quality Assistant", page_icon="🤖")
+    st.title("🤖 Atlas Components Quality Assistant")
+    st.caption("Ask a question about ISO 9001 or internal procedures.")
 
     @st.cache_resource
     def get_agent():
-        with st.spinner("Indexation des documents en cours..."):
+        with st.spinner("Indexing documents..."):
             return build_agent()
 
     agent = get_agent()
@@ -25,7 +22,7 @@ def run() -> None:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
-    question = st.chat_input("Ta question...")
+    question = st.chat_input("Your question...")
     if not question:
         return
 
@@ -34,7 +31,7 @@ def run() -> None:
         st.markdown(question)
 
     with st.chat_message("assistant"):
-        with st.spinner("Recherche en cours..."):
+        with st.spinner("Searching documents..."):
             answer = agent.run(question).content
         st.markdown(answer)
 

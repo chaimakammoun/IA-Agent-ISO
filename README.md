@@ -1,82 +1,106 @@
-# 🤖 Assistant Qualité ISO 9001 — RAG avec Ollama, Agno et Streamlit
+# ISO Quality Assistant
 
-Assistant IA permettant de poser des questions sur la **norme ISO 9001:2015** et sur les documents qualité d'une entreprise fictive de fabrication (**Atlas Composants**).
+A local Retrieval-Augmented Generation (RAG) application for querying ISO 9001:2015 material and internal quality documents. The assistant searches the available documents, then uses a local Ollama model to produce concise, source-grounded answers.
 
-L'assistant utilise une approche **RAG (Retrieval-Augmented Generation)** pour rechercher les informations pertinentes dans les documents et générer une réponse avec **citation des sources**.
+## Features
 
-Le projet fonctionne **entièrement en local** grâce à Ollama.
+- Searches ISO and company documents stored in `data/`
+- Uses LanceDB for local vector search
+- Runs entirely locally with Ollama
+- Provides a Streamlit chat interface
+- Restricts responses to retrieved document content
+- Lists only the files actually used in each answer
 
----
-
-## 🎯 Objectif
-
-L'objectif est de faciliter la recherche d'informations liées à la qualité et à l'ISO 9001:2015.
-
-Au lieu de rechercher manuellement une exigence dans plusieurs documents, l'utilisateur peut poser une question directement à l'assistant.
-
-**Exemple :**
-
-> Quelles sont les exigences concernant les audits internes ?
-
-L'agent recherche les passages pertinents dans les documents disponibles et fournit une réponse accompagnée de ses sources.
-
----
-
-## 🏗️ Architecture
+## Architecture
 
 ```text
-Question utilisateur
-        │
-        ▼
-Recherche RAG vectorielle
-        │
-        ▼
-LanceDB + Embeddings
-(nomic-embed-text)
-        │
-        ▼
-Agent Agno + Ollama
-(llama3.2:3b)
-        │
-        ▼
-Réponse avec sources
-        │
-        ▼
-Interface Streamlit 
-
+User question
+    ↓
+Vector search with LanceDB
+    ↓
+Relevant document passages
+    ↓
+Agno agent + Ollama
+    ↓
+Answer with sources
 ```
 
----
+## Project Structure
 
-## ⚙️ Installation
+```text
+IA-Agent-ISO/
+├── data/                       # ISO and company documents to index
+├── lancedb/                    # Generated local vector database
+├── src/
+│   └── iso_assistant/
+│       ├── __init__.py
+│       ├── config.py            # Paths, model names, and constants
+│       ├── instructions.py      # Agent grounding rules
+│       ├── knowledge.py         # LanceDB setup and document indexing
+│       ├── agent.py             # Agent construction
+│       └── ui.py                # Streamlit chat interface
+├── app.py                       # Application entry point
+├── .gitignore
+└── README.md
+```
 
-1. Cloner le repository:
+## Prerequisites
 
+- Python 3.10 or later
+- [Ollama](https://ollama.com/)
+
+## Installation
+
+1. Clone the repository and open the project directory.
+
+```powershell
 git clone https://github.com/chaimakammoun/IA-Agent-ISO.git
-
 cd IA-Agent-ISO
+```
 
----
+2. Create and activate a virtual environment.
 
-2. Installer les dépendances:
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
 
-Installer les bibliothèques Python nécessaires au projet.
+3. Install the Python dependencies.
 
----
+```powershell
+pip install streamlit agno lancedb
+```
 
-3. Installer Ollama:
+4. Download the Ollama models used by the application.
 
-Installer Ollama puis télécharger les modèles utilisés :
-
+```powershell
 ollama pull llama3.2:3b
-
 ollama pull nomic-embed-text
+```
 
----
+## Add Documents
 
-## ▶️ Lancer l'application
+Place ISO standards, procedures, policies, or other source documents in the `data/` folder. The application indexes this directory when the agent is created.
 
+## Run the Application
+
+Make sure Ollama is running, then start Streamlit from the project root:
+
+```powershell
 streamlit run app.py
+```
 
----
-L'application sera ensuite accessible depuis le navigateur via l'interface Streamlit.
+Streamlit will display a local URL in the terminal. Open it in your browser to use the assistant.
+
+## Configuration
+
+Model names, database settings, and project paths are defined in `src/iso_assistant/config.py`.
+
+The default models are:
+
+- Chat model: `llama3.2:3b`
+- Embedding model: `nomic-embed-text`
+
+## Data and Git
+
+The `lancedb/` folder is generated locally and excluded from Git. Keep source documents in `data/` under version control only when they are appropriate to share.

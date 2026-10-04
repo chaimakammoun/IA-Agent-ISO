@@ -1,5 +1,3 @@
-"""Application paths, models, and retrieval configuration."""
-
 from pathlib import Path
 
 

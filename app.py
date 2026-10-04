@@ -1,5 +1,3 @@
-"""Streamlit entry point for the ISO quality assistant."""
-
 from pathlib import Path
 import sys
 

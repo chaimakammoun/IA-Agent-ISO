@@ -1,5 +1,3 @@
-"""Knowledge base and document indexing setup."""
-
 from agno.knowledge.embedder.ollama import OllamaEmbedder
 from agno.knowledge.knowledge import Knowledge
 from agno.vectordb.lancedb import LanceDb
@@ -15,7 +13,6 @@ from iso_assistant.config import (
 
 
 def build_knowledge_base() -> Knowledge:
-    """Create the vector store and index the project documents."""
     knowledge = Knowledge(
         vector_db=LanceDb(
             table_name=VECTOR_TABLE_NAME,
