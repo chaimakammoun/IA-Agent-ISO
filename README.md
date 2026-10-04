@@ -100,8 +100,14 @@ The `lancedb/` folder is generated locally and excluded from Git. Keep source do
 
 ## Screenshots
 
-![Application screenshot 1](screenshots/im1.png)
+### Chat Interface
 
-![Application screenshot 2](screenshots/im2.png)
+<img src="screenshots/interface.png" alt="Chat Interface" width="700">
 
-![Application screenshot 3](screenshots/im3.png)
+### Question and Retrieval
+
+<img src="screenshots/question.png" alt="Question and Retrieval" width="700">
+
+### Answer with Sources
+
+<img src="screenshots/response.png" alt="Answer with Sources" width="700">
