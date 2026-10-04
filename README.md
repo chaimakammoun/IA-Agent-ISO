@@ -100,6 +100,8 @@ The `lancedb/` folder is generated locally and excluded from Git. Keep source do
 
 ## Screenshots
 
+The screenshots below show the assistant interface and its document retrieval and answer flow.
+
 ### Chat Interface
 
 <img src="screenshots/interface.png" alt="Chat Interface" width="700">
@@ -111,3 +113,15 @@ The `lancedb/` folder is generated locally and excluded from Git. Keep source do
 ### Answer with Sources
 
 <img src="screenshots/response.png" alt="Answer with Sources" width="700">
+
+
+
+<img src="screenshots/image1.png" alt="Application screenshot 1" width="700">
+
+
+
+<img src="screenshots/image2.png" alt="Application screenshot 2" width="700">
+
+
+
+<img src="screenshots/image3.png" alt="Application screenshot 3" width="700">
