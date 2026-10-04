@@ -1,7 +1,6 @@
 # ISO Quality Assistant
 
-A local Retrieval-Augmented Generation (RAG) application for querying ISO 9001:2015 material and internal quality documents. The assistant searches the available documents, then uses a local Ollama model to produce concise, source-grounded answers.
-
+A local RAG (Retrieval-Augmented Generation) assistant for asking questions about the ISO 9001:2015 standard and the quality documents of a fictional manufacturing company, Atlas Composants. It searches the available documents, then uses a local Ollama model to write concise answers grounded in what it found, with the sources cited.
 ## Features
 
 - Searches ISO and company documents stored in `data/`
@@ -58,20 +57,14 @@ git clone https://github.com/chaimakammoun/IA-Agent-ISO.git
 cd IA-Agent-ISO
 ```
 
-2. Create and activate a virtual environment.
 
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-```
-
-3. Install the Python dependencies.
+2. Install the Python dependencies.
 
 ```powershell
 pip install streamlit agno lancedb
 ```
 
-4. Download the Ollama models used by the application.
+3. Download the Ollama models used by the application.
 
 ```powershell
 ollama pull llama3.2:3b
